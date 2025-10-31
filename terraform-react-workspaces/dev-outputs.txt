@@ -1,0 +1,27 @@
+deployment_command = <<EOT
+cd ../my-react-app
+zip -r build.zip build/*
+az webapp deployment source config-zip \
+  --resource-group rg-dev-reactapp-mbto49 \
+  --name reactapp-dev-mbto49 \
+  --src build.zip
+
+EOT
+deployment_info = {
+  "deployment_id" = "f4y1orcs"
+  "resource_prefix" = "dev"
+  "timestamp" = "2025-10-10T03:10:31Z"
+}
+environment = {
+  "always_on" = false
+  "https_only" = false
+  "location" = "East US"
+  "name" = "dev"
+  "sku" = "F1"
+}
+location = "East US"
+resource_group_name = "rg-dev-reactapp-mbto49"
+storage_account_name = "deploydevmbto49"
+webapp_name = "reactapp-dev-mbto49"
+webapp_url = "https://reactapp-dev-mbto49.azurewebsites.net"
+workspace = "dev"

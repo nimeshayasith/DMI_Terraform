@@ -1,0 +1,178 @@
+{
+  "version": 4,
+  "terraform_version": "1.13.3",
+  "serial": 1,
+  "lineage": "7f9adcbc-04bc-4529-2e55-62eda4f860d7",
+  "outputs": {
+    "backend_info": {
+      "value": {
+        "backend_type": "s3",
+        "location": "AWS S3",
+        "lock_table": "terraform-state-lock",
+        "locking": "DynamoDB"
+      },
+      "type": [
+        "object",
+        {
+          "backend_type": "string",
+          "location": "string",
+          "lock_table": "string",
+          "locking": "string"
+        }
+      ]
+    },
+    "demo_bucket_arn": {
+      "value": "arn:aws:s3:::demo-bucket-ta75031f",
+      "type": "string"
+    },
+    "demo_bucket_name": {
+      "value": "demo-bucket-ta75031f",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "demo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::demo-bucket-ta75031f",
+            "bucket": "demo-bucket-ta75031f",
+            "bucket_domain_name": "demo-bucket-ta75031f.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "demo-bucket-ta75031f.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "f1447e41c5336b89bb8466c092f339efae4ebd69ab39f2920df5474079045d3a",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "demo-bucket-ta75031f",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Backend": "s3-dynamodb",
+              "ManagedBy": "terraform",
+              "Purpose": "remote-state-testing"
+            },
+            "tags_all": {
+              "Backend": "s3-dynamodb",
+              "ManagedBy": "terraform",
+              "Purpose": "remote-state-testing"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "random_string.suffix"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket_versioning",
+      "name": "demo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "demo-bucket-ta75031f",
+            "expected_bucket_owner": "",
+            "id": "demo-bucket-ta75031f",
+            "mfa": null,
+            "versioning_configuration": [
+              {
+                "mfa_delete": "",
+                "status": "Enabled"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_s3_bucket.demo",
+            "random_string.suffix"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_string",
+      "name": "suffix",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "id": "ta75031f",
+            "keepers": null,
+            "length": 8,
+            "lower": true,
+            "min_lower": 0,
+            "min_numeric": 0,
+            "min_special": 0,
+            "min_upper": 0,
+            "number": true,
+            "numeric": true,
+            "override_special": null,
+            "result": "ta75031f",
+            "special": false,
+            "upper": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
